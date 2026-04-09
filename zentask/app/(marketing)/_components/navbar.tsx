@@ -8,6 +8,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/spinner";
+import Link from "next/link";
 
 export const Navbar = () => {
     const { isAuthenticated, isLoading} = useConvexAuth();
@@ -26,6 +27,9 @@ export const Navbar = () => {
             )}
             {!isAuthenticated && !isLoading && (
                 <>
+                <Button size="sm" variant="ghost" asChild>
+                    <Link href="/demo">Try Demo</Link>
+                </Button>
                 <SignInButton mode="modal" forceRedirectUrl = "/documents" >
                     <Button size="sm">
                         Log in
